@@ -3,20 +3,13 @@
 ## Environment
 To ensure that results of evaluating scripts explained below will deviate as little as possible from the results presented at the *DREAM 2022 Challenge*, we strongly advise to use our **conda** environment provided in `env/environment.yml` file. The environment can be initialized via
 ```
-> conda env create -f env/environment.yml
+> conda env create -f environment.yml
 ```
 And then activated with 
 ```
 > conda activate dream_autosome
 ```
 Please note that we did the training on a GPU, and it is likely that the conda environment doesn't accomodate fully for a possible TPU usage.
-
-
-Alternatively, you can just go for 
-```
-> pip3 install -r env/requirements.txt
-```
-to install all the necessary Python packages via **pip**, but we recommend this approach with a much lesser emphasis. If possible, stick with the **conda** way.
 
 ## Input data
 
