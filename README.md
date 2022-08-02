@@ -1,5 +1,4 @@
-# DREAM 2022 Challenge
-# *autosome.org* reproduction repository
+# DREAM 2022 Challenge| *autosome.org* reproduction repository
 
 ## Environment
 To ensure that results of evaluating scripts explained below will deviate as little as possible from the results presented at the *DREAM 2022 Challenge*, we strongly advise to use our **conda** environment provided in `environment.yml` file. The environment can be initialized via
