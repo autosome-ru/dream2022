@@ -13,7 +13,7 @@ Please note that we did the training on a GPU, and it is likely that the conda e
 
 ## Input data
 
-Before you proceed, make sure that `test_sequences.txt` file is in the root directiory of the repository. If you aim to re-train the model, make sure that the same applies for `expression_challenge.txt` (this file is not provided with the repository as it is too large).
+Before you proceed, make sure that `test_sequences.txt` file is in the root directiory of the repository. If you aim to re-train the model, make sure that the same applies for `train_sequences.txt` (this file is not provided with the repository as it is too large).
 
 ## Test-time evaluation
 To reproduce predictions *exactly* (up to some floating point errors) as they were present at *DREAM* leaderboard, i.e.
