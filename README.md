@@ -1,7 +1,7 @@
 # DREAM 2022 Challenge| *autosome.org* reproduction repository
-<p align=center>
+
 ![Noginet logotype](logo.jpg "Noginet")
-</p>
+
 ## Environment
 To ensure that results of evaluating scripts explained below will deviate as little as possible from the results presented at the *DREAM 2022 Challenge*, we strongly advise to use our **conda** environment provided in `env/environment.yml` file. The environment can be initialized via
 ```
@@ -27,9 +27,9 @@ Before you proceed, make sure that `test_sequences.txt` file is in the root dire
 ## Test-time evaluation
 To reproduce predictions *exactly* (up to some floating point errors) as they were present at *DREAM* leaderboard, i.e.
 
-|#|Competitor|Submission Time|Score PearsonR^2 | Score Spearman | PearsonR^2 | Spearman|
-|-|-----------------|----------------|------------|---------|
-|**1**|autosome.org|2022-07-31T19:39:12+03:00|0.829            |0.860           |0.952       |0.979    |
+|#|Competitor|Submission Time|Score PearsonR^2|Score Spearman|PearsonR^2|Spearman|
+|-|----------|---------------|----------------|--------------|----------|--------|
+|**1**|autosome.org|2022-07-31T19:39:12+03:00|0.829|0.860|0.952|0.979|
 
 just run the `test.sh` bash script. Then, predictions will be saved to the `results.json` file. Note that the original `results.json` (i.e. the one that we uploaded to the leaderboard) will be overwritten.
 
