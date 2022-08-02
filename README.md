@@ -32,6 +32,6 @@ You can re-train the model with `train.sh` script. Chances are, that your result
 
 Note that models are saved each epoch, i.e. given the fact the use 80 training epochs, your final model of interest will be the last one (`model_80.pth`).
 
-You'll also probably would like to run predictions on a newly re-trained models. For that purpose, you need to change those two arguments in the `test.sh` script:
+You'll also probably would like to obtain predictions from newly re-trained models. For that purpose, you need to change those two arguments in the `test.sh` script:
 - `--output` -- a path to a file where predictions will be stored;
 - `--model` -- a path to a saved model `.pth`-file.
