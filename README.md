@@ -1,7 +1,5 @@
 # DREAM 2022 Challenge| *autosome.org* reproduction repository
 
-![Noginet logotype](logo.jpg "Noginet")
-
 ## Environment
 To ensure that results of evaluating scripts explained below will deviate as little as possible from the results presented at the *DREAM 2022 Challenge*, we strongly advise to use our **conda** environment provided in `env/environment.yml` file. The environment can be initialized via
 ```
