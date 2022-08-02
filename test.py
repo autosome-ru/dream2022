@@ -8,7 +8,6 @@ import random
 from torch.utils.data import DataLoader
 from scipy.stats import pearsonr, spearmanr
 from pathlib import Path
-from capsule_layer import CapsuleConv2d
 from torch.utils.data import Sampler
 from torch import Tensor 
 from typing import Sequence, Iterator, ClassVar

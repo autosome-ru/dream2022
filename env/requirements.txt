@@ -7,7 +7,6 @@ backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
 beautifulsoup4 @ file:///opt/conda/conda-bld/beautifulsoup4_1650462163268/work
 bleach @ file:///opt/conda/conda-bld/bleach_1641577558959/work
 cachetools==5.1.0
-capsule-layer @ git+https://github.com/leftthomas/CapsuleLayer.git@2205a603ac1cb3d24673ea7796a4a7e817914712
 certifi==2022.5.18.1
 cffi @ file:///opt/conda/conda-bld/cffi_1642701102775/work
 charset-normalizer==2.0.12
@@ -87,6 +86,7 @@ tensorly==0.7.0
 tensorly-torch==0.3.0
 terminado @ file:///tmp/build/80754af9/terminado_1644322582718/work
 testpath @ file:///tmp/build/80754af9/testpath_1624638946665/work
+--find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.11.0+cu113
 torchaudio==0.11.0+cu113
 torchvision==0.12.0+cu113

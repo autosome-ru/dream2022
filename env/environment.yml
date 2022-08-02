@@ -127,10 +127,12 @@ dependencies:
   - xz=5.2.5=h7f8727e_1
   - zeromq=4.3.4=h2531618_0
   - zlib=1.2.12=h7f8727e_2
+  - pip
   - pip:
+    - --find-links https://download.pytorch.org/whl/torch_stable.html
+    - pip==22.2
     - absl-py==1.0.0
     - cachetools==5.1.0
-    - capsule-layer==0.5.0
     - charset-normalizer==2.0.12
     - cycler==0.11.0
     - dill==0.3.5.1
@@ -149,11 +151,11 @@ dependencies:
     - oauthlib==3.2.0
     - pandas==1.4.2
     - pillow==9.1.1
-    - pip==22.2
     - protobuf==3.20.1
     - pyasn1==0.4.8
     - pyasn1-modules==0.2.8
     - pyparsing==3.0.9
+    - torch==1.11.0+cu113
     - pytorch-ignite==0.4.9
     - pytz==2022.1
     - requests==2.27.1
@@ -166,7 +168,6 @@ dependencies:
     - tensorboard-plugin-wit==1.8.1
     - tensorly==0.7.0
     - tensorly-torch==0.3.0
-    - torch==1.11.0+cu113
     - torchaudio==0.11.0+cu113
     - torchvision==0.12.0+cu113
     - tqdm==4.64.0
