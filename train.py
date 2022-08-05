@@ -536,7 +536,7 @@ if not (train_path.exists() and valid_path.exists()):
     assert len(train_valid.columns) >= 2, err_str
     train_valid.columns = ['seq', 'bin', 'fold'][:len(train_valid.columns)]
     if args.foldify and ('fold' not in train_valid):
-        fold = list(map(lambda x: hash_fun(args.seed, x), train_valid.seq))
+        fold = list(map(lambda x: hash_fun(x, args.seed), train_valid.seq))
         train_valid['fold'] = fold
         train_valid = train_valid.sort_values('fold')
 
