@@ -361,6 +361,7 @@ if len(df.columns) == 1:
     print(f'Warning: there is just one column in the dataframe. Are you sure that you provided the correct delimiter? Using {args.delimiter} now.')
 df.columns = ['seq', 'bin', 'fold'][:len(df.columns)]
 print(df.head())
+df_orig = df.copy()
 df = preprocess_data(df, args.seqsize)
 if args.use_single_channel:
     df = add_singleton_column(df, args.singleton_definition)
@@ -410,7 +411,7 @@ if args.output_format == 'json':
     with open(args.output, 'w') as f:
         json.dump(d, f)
 else:
-    df = df[['seq', 'bin']]
+    df = df_orig[['seq', 'bin']]
     df['bin'] = y
     df.to_csv(args.output, sep='\t' if args.output_format == 'tsv' else ',', index=None, header=False)
     
