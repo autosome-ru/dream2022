@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset
@@ -305,31 +306,25 @@ TRAIN_VAL_PATH = "expression_challenge.txt"
 
 parser.add_argument("--valid_folds", nargs='+',  type=int, default=list())
 parser.add_argument("--seed", type=int, default=42)
-parser.add_argument("--train_workers", type=int, default=8)
 parser.add_argument("--valid_batch_size", type=int, default=4098)
 parser.add_argument("--valid_workers", type=int, default=8)
-parser.add_argument("--use_sampler", action="store_true")
-parser.add_argument("--epoch_num", type=int, default=200)
 parser.add_argument("--batch_per_epoch", type=int, default=1000)
-parser.add_argument("--weights", choices=["uniform", "counts"], default="uniform")
 parser.add_argument("--seqsize", type=int, default=120)
 parser.add_argument("--temp", default=".TEMPDIR", type=Path)
 parser.add_argument("--use_single_channel", action="store_true")
 parser.add_argument("--singleton_definition", choices=["integer", "threshold1100"], default="integer")
 parser.add_argument("--gpu", type=int, default=0)
-parser.add_argument("--ks", default=5, type=int)
-parser.add_argument("--blocks", default=[256, 256, 128, 128, 64, 64, 32, 32], nargs="+", type=int)
-parser.add_argument("--resize_factor", default=4, type=int)
-parser.add_argument("--se_reduction", default=4, type=float)
-parser.add_argument("--shift", default=0.5, type=float)
-parser.add_argument("--scale", default=1.5, type=str)
-parser.add_argument("--loss", choices=["mse", "kl"], default="mse", type=str)
-parser.add_argument("--final_ch", default=18, type=int)
-parser.add_argument("--target", type=str)
-parser.add_argument("--model", type=str, default="model/model_80.pth")
-parser.add_argument("--output", type=str, default="results.tsv")
-parser.add_argument("--output_format", type=str, choices=["tsv", "csv", "json"], default="tsv")
-parser.add_argument("--delimiter", default='space', type=str)
+parser.add_argument("--ks", default=5, type=int, help="kernel size of convolutional layers")
+parser.add_argument("--blocks", default=[256, 256, 128, 128, 64, 64, 32, 32], nargs="+", type=int, help="number of channels for EffNet-like blocks")
+parser.add_argument("--resize_factor", default=4, type=int, help="number of channels in a middle/high-dimensional convolutional layer of an EffNet-like block")
+parser.add_argument("--se_reduction", default=4, type=float, help="reduction number used in SELayer")
+parser.add_argument("--loss", choices=["mse", "kl"], default="mse", type=str, help="loss function")
+parser.add_argument("--final_ch", default=18, type=int, help="number of channels of the final convolutional layer")
+parser.add_argument("--target", type=str, help="path to a testing dataset")
+parser.add_argument("--model", type=str, default="model/model_80.pth", help="path to a .pth file where parameters are stored")
+parser.add_argument("--output", type=str, default="results.tsv", help="path to file where results will be stored")
+parser.add_argument("--output_format", type=str, choices=["tsv", "csv", "json"], default="tsv", help="foramt of the output file")
+parser.add_argument("--delimiter", default='space', type=str, help="delimiter that separates columns in a training file")
 
 
 args = parser.parse_args()
