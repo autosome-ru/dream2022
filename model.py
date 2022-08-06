@@ -8,7 +8,7 @@ import torch
 
 class Bilinear(nn.Module):
     """
-    Bilinear layers introduces pairwise product to a NN to model possible combinatorial effects.
+    Bilinear layer introduces pairwise product to a NN to model possible combinatorial effects.
     This particular implementation attempts to leverage the number of parameters via low-rank tensor decompositions.
 
     Parameters
