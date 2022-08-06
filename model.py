@@ -7,7 +7,23 @@ import torch
 
 
 class Bilinear(nn.Module):
-    def __init__(self, n: int, out=None, rank=0.05, bias=False):
+    """
+    Bilinear layers introduces pairwise product to a NN to model possible combinatorial effects.
+    This particular implementation attempts to leverage the number of parameters via low-rank tensor decompositions.
+
+    Parameters
+    ----------
+    n : int
+        Number of input features.
+    out : int, optional
+        Number of output features. If None, assumed to be equal to the number of input features. The default is None.
+    rank : float, optional
+        Fraction of maximal to rank to be used in tensor decomposition. The default is 0.05.
+    bias : bool, optional
+        If True, bias is used. The default is False.
+
+    """
+    def __init__(self, n: int, out=None, rank=0.05, bias=False):        
         super().__init__()
         if out is None:
             out = (n, )
@@ -19,7 +35,18 @@ class Bilinear(nn.Module):
         return self.trl(x @ x.transpose(-1, -2))
 
 class Concater(nn.Module):
-    def __init__(self, module: nn.Module, dim=-1):
+    """
+    Concatenates an output of some module with its input alongside some dimension.
+
+    Parameters
+    ----------
+    module : nn.Module
+        Module.
+    dim : int, optional
+        Dimension to concatenate along. The default is -1.
+
+    """
+    def __init__(self, module: nn.Module, dim=-1):        
         super().__init__()
         self.mod = module
         self.dim = dim
@@ -28,6 +55,19 @@ class Concater(nn.Module):
         return torch.concat((x, self.mod(x)), dim=self.dim)
 
 class SELayer(nn.Module):
+    """
+    Squeeze-and-Excite layer.
+
+    Parameters
+    ----------
+    inp : int
+        Middle layer size.
+    oup : int
+        Input and ouput size.
+    reduction : int, optional
+        Reduction parameter. The default is 4.
+
+    """
     def __init__(self, inp, oup, reduction=4):
         super(SELayer, self).__init__()
         self.avg_pool = nn.AdaptiveAvgPool1d(1)
@@ -48,6 +88,33 @@ class SELayer(nn.Module):
         return x * y
     
 class SeqNN(nn.Module):
+    """
+    NoGINet neural network.
+
+    Parameters
+    ----------
+    seqsize : int
+        Sequence length.
+    use_single_channel : bool
+        If True, singleton channel is used.
+    block_sizes : list, optional
+        List containing block sizes. The default is [256, 256, 128, 128, 64, 64, 32, 32].
+    ks : int, optional
+        Kernel size of convolutional layers. The default is 5.
+    resize_factor : int, optional
+        Resize factor used in a high-dimensional middle layer of an EffNet-like block. The default is 4.
+    activation : nn.Module, optional
+        Activation function. The default is nn.SiLU.
+    filter_per_group : int, optional
+        Number of filters per group in a middle convolutiona layer of an EffNet-like block. The default is 2.
+    se_reduction : int, optional
+        Reduction number used in SELayer. The default is 4.
+    final_ch : int, optional
+        Number of channels in the final output convolutional channel. The default is 18.
+    bn_momentum : float, optional
+        BatchNorm momentum. The default is 0.1.
+
+    """
     __constants__ = ('resize_factor')
     
     def __init__(self, 
@@ -60,7 +127,7 @@ class SeqNN(nn.Module):
                 filter_per_group=2,
                 se_reduction=4,
                 final_ch=18,
-                bn_momentum=0.1):
+                bn_momentum=0.1):        
         super().__init__()
         self.block_sizes = block_sizes
         self.resize_factor = resize_factor
