@@ -410,9 +410,9 @@ if args.output_format == 'json':
     with open(args.output, 'w') as f:
         json.dump(d, f)
 else:
-    df = df.drop('rev', axis=1)
+    df = df[['seq', 'bin']]
     df['bin'] = y
-    df.to_csv(args.output, sep='\t' if args.output_format == 'tsv' else ',', index=None)
+    df.to_csv(args.output, sep='\t' if args.output_format == 'tsv' else ',', index=None, header=False)
     
 y = np.array(y)
 if y_true:
