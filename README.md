@@ -15,7 +15,7 @@ Please note that we did the training on a GPU, and it is likely that the conda e
 
 Before you proceed, make sure that `test_sequences.txt` file is in the root directiory of the repository. If you aim to re-train the model, make sure that the same applies for `train_sequences.txt` (this file is not provided with the repository as it is too large).
 
-## Submissions
+## Our submission
 
 You can find predictions of our model that correspond to the following result from the leaderboard
 
