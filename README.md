@@ -15,7 +15,7 @@ Please note that we did the training on a GPU, and it is likely that the conda e
 
 Before you proceed, make sure that `test_sequences.txt` file is in the root directiory of the repository. If you aim to re-train the model, make sure that the same applies for `train_sequences.txt` (this file is not provided with the repository as it is too large).
 
-## Our submission
+## Submissions
 
 You can find predictions of our model that correspond to the following result from the leaderboard
 
@@ -42,3 +42,10 @@ Note that models are saved each epoch, i.e. given the fact the we use 80 trainin
 You'll also probably would like to obtain predictions from newly re-trained models. For that purpose, you need to change those two arguments in the `test.sh` script:
 - `--output` -- a path to a file where predictions will be stored;
 - `--model` -- a path to a saved model `.pth`-file.
+
+## Troubleshooting
+
+So far we are aware only of a single issue that may or may not arise due to simultaneous openings of dataset files. The issue can be mitigated via setting `ulimit -n` to some high value, e.g.
+```
+> ulimit -n 1000000
+```
