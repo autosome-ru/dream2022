@@ -1,3 +1,3 @@
 echo "-------Testing..."
-python3 test.py --seed 42 --train_workers 8 --valid_batch_size 1024 --valid_workers 8 --seqsize 150 --temp .TEMPDIR --use_single_channel --singleton_definition integer --gpu 0 --ks 7 --blocks 256 128 128 64 64 64 64 --resize_factor 4 --se_reduction 4 --shift 0.5 --scale 0.5 --final_ch 18 --target test_sequences.txt --delimiter tab --output results.json --model model/model_80.pth
+python3 test.py --seed 42 --train_workers 8 --valid_batch_size 1024 --valid_workers 8 --seqsize 150 --temp .TEMPDIR --use_single_channel --singleton_definition integer --gpu 0 --ks 7 --blocks 256 128 128 64 64 64 64 --resize_factor 4 --se_reduction 4 --shift 0.5 --scale 0.5 --final_ch 18 --target test_sequences.txt --delimiter tab --output_format tsv --output results.tsv --model model/model_80.pth
 echo "Done."

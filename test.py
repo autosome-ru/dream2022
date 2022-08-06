@@ -327,7 +327,8 @@ parser.add_argument("--loss", choices=["mse", "kl"], default="mse", type=str)
 parser.add_argument("--final_ch", default=18, type=int)
 parser.add_argument("--target", type=str)
 parser.add_argument("--model", type=str, default="model/model_80.pth")
-parser.add_argument("--output", type=str, default="results.json")
+parser.add_argument("--output", type=str, default="results.tsv")
+parser.add_argument("--output_format", type=str, choices=["tsv", "csv", "json"], default="tsv")
 parser.add_argument("--delimiter", default='space', type=str)
 
 
@@ -403,10 +404,16 @@ for its in dl_rev:
 assert len(y) == len(y_rev)
 for i in range(len(y)):
     y[i] = (y[i] + y_rev[i]) / 2
-keys = list(range(0, len(y)))
-d = dict(zip(keys, y))
-with open(args.output, 'w') as f:
-    json.dump(d, f)
+if args.output_format == 'json':
+    keys = list(range(0, len(y)))
+    d = dict(zip(keys, y))
+    with open(args.output, 'w') as f:
+        json.dump(d, f)
+else:
+    df = df.drop('rev', axis=1)
+    df['bin'] = y
+    df.to_csv(args.output, sep='\t' if args.output_format == 'tsv' else ',', index=None)
+    
 y = np.array(y)
 if y_true:
     try:

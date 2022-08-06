@@ -22,7 +22,7 @@ To reproduce predictions *exactly* (up to some floating point errors) as they we
 |-|----------|---------------|----------------|--------------|----------|--------|
 |**1**|autosome.org|2022-07-31T19:39:12+03:00|0.829|0.860|0.952|0.979|
 
-just run the `test.sh` bash script. Then, predictions will be saved to the `results.json` file. Note that the original `results.json` (i.e. the one that we uploaded to the leaderboard) will be overwritten.
+just run the `test.sh` bash script. Then, predictions will be saved to the `results.txt` file. Note that the original `results.txt` (i.e. the one that corresponds to the json file that we uploaded to the leaderboard; for convenience, the `results.json` that was upload it also supplied alongside the repository -- the only difference is the format) will be overwritten. If you want to obtain predictions in `json` format as was required by the leaderboard system, consider changing `--output_format tsv` and `--output results.txt` to `--output_format json` and `--output results.json` respectively.
 
 ## Training
 
