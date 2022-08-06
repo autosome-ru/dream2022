@@ -15,14 +15,21 @@ Please note that we did the training on a GPU, and it is likely that the conda e
 
 Before you proceed, make sure that `test_sequences.txt` file is in the root directiory of the repository. If you aim to re-train the model, make sure that the same applies for `train_sequences.txt` (this file is not provided with the repository as it is too large).
 
-## Test-time evaluation
-To reproduce predictions *exactly* (up to some floating point errors) as they were present at *DREAM* leaderboard, i.e.
+## Submissions
+
+You can find predictions of our model that correspond to the following result from the leaderboard
 
 |#|Competitor|Submission Time|Score PearsonR^2|Score Spearman|PearsonR^2|Spearman|
 |-|----------|---------------|----------------|--------------|----------|--------|
 |**1**|autosome.org|2022-07-31T19:39:12+03:00|0.829|0.860|0.952|0.979|
 
-just run the `test.sh` bash script. Then, predictions will be saved to the `results.txt` file. Note that the original `results.txt` (i.e. the one that corresponds to the json file that we uploaded to the leaderboard; for convenience, the `results.json` that was upload it also supplied alongside the repository -- the only difference is the format) will be overwritten. If you want to obtain predictions in `json` format as was required by the leaderboard system, consider changing `--output_format tsv` and `--output results.txt` to `--output_format json` and `--output results.json` respectively.
+
+in the `submissions` folder. Namely, the files are `results.txt` and `results.json` -- they differ only in format and the latter is the file that was actually uploaded to the leaderboard system (here, we provide both variants for a convenience).
+
+## Test-time evaluation
+To reproduce predictions *almost* exactly (up to some floating point errors due to different GPUs) as they were present at *DREAM* leaderboard, i.e.
+
+just run the `test.sh` bash script. Then, predictions will be saved to the `results.txt` file in the root directory of the repository. If you want to obtain predictions in `json` format as was required by the leaderboard system, consider changing `--output_format tsv` and `--output results.txt` to `--output_format json` and `--output results.json` respectively.
 
 ## Training
 
