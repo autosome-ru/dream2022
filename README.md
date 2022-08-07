@@ -27,9 +27,7 @@ You can find predictions of our model that correspond to the following result fr
 in the `submissions` folder. Namely, the files are `results.txt` and `results.json` -- they differ only in format and the latter is the file that was actually uploaded to the leaderboard system (here, we provide both variants for a convenience).
 
 ## Test-time evaluation
-To reproduce predictions *almost* exactly (up to some floating point errors due to different GPUs) as they were present at *DREAM* leaderboard, i.e.
-
-just run the `test.sh` bash script. Then, predictions will be saved to the `results.txt` file in the root directory of the repository. If you want to obtain predictions in `json` format as was required by the leaderboard system, consider changing `--output_format tsv` and `--output results.txt` to `--output_format json` and `--output results.json` respectively.
+To reproduce predictions *almost* exactly (up to some floating point errors due to different GPUs) as they were present at *DREAM* leaderboard, just run the `test.sh` bash script. Then, predictions will be saved to the `results.txt` file in the root directory of the repository. If you want to obtain predictions in `json` format as was required by the leaderboard system, consider changing `--output_format tsv` and `--output results.txt` to `--output_format json` and `--output results.json` respectively.
 
 ## Training
 
