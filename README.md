@@ -43,7 +43,8 @@ Predictions from newly trained models can be ontained by changing the following 
 
 ## Troubleshooting
 
-So far we are aware only of a single issue that may or may not arise due to simultaneous openings of dataset files. The issue can be mitigated via setting `ulimit -n` to some high value, e.g.
+Depending on particular machine, the script may fail due to the system limit applied to the number of open files. 
+Please consider setting `ulimit -n` to a higher value on the user- or system level, e.g.
 ```
 > ulimit -n 1000000
 ```
